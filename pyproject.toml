@@ -1,0 +1,14 @@
+[project]
+name = "http-header-token-parser"
+version = "0.1.0"
+description = "Parses HTTP header values containing RFC 7230 token and quoted-string elements, correctly handling escaping and folding."
+requires-python = ">=3.10"
+dependencies = []
+readme = "README.md"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
