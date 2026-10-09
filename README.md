@@ -22,3 +22,10 @@ The trade-off: a deliberately small surface. No Q-value sorting, no parameter ex
 ## Awkward edge
 
 A token that contains a comma (e.g. `gzip,deflate` as a single value) raises `ValueError`. The parser treats a header value as a whitespace-delimited sequence of tokens and quoted-strings only; commas are not separators here. If your header is comma-delimited, split on commas first, then call `parse_header_value` on each piece.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
